@@ -29,19 +29,20 @@ function onSubmitForm(event) {
         });
     }
   }
-evt.currentTarget.reset();
+event.currentTarget.reset();
 }
-
-
 
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
-    if (shouldResolve) {
-      resolve({ position, delay });
-    } else {
-      reject({ position, delay });
-    }
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve({ position, delay });
+      } else {
+        reject({ position, delay });
+      }
+    }, delay);
+    
   });
 }

@@ -11,15 +11,18 @@ let timerId = null;
 dataStartChangeColor.addEventListener('click', onStart);
 dataStopChangeColor.addEventListener('click', onStop);
 
+
+
 function onStart() {
   timerId = setInterval(getBgColor, 1000);
 
-  dataStartChangeColor.toggleAttribute('disabled');
+  dataStartChangeColor.setAttribute('disabled', true);
+  dataStopChangeColor.removeAttribute('disabled');
 }
 
 function onStop() {
   clearInterval(timerId);
-
+  dataStopChangeColor.setAttribute('disabled', true);
   dataStartChangeColor.removeAttribute('disabled');
 }
 
